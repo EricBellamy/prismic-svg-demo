@@ -5,28 +5,48 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Item in *Settings → Navigation*
+ * Item in *Settings → Feature SVGs*
  */
-export interface SettingsDocumentDataNavigationItem {
+export interface SettingsDocumentDataFeatureSvgsItem {
   /**
-   * Link field in *Settings → Navigation*
+   * SVG Image field in *Settings → Feature SVGs*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navigation[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **API ID Path**: settings.feature_svgs[].svg_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  link: prismic.LinkField;
+  svg_image: prismic.ImageField<never>;
 
   /**
-   * Label field in *Settings → Navigation*
+   * SVG Stroke Width field in *Settings → Feature SVGs*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Number
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navigation[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: settings.feature_svgs[].svg_stroke_width
+   * - **Documentation**: https://prismic.io/docs/field#number
    */
-  label: prismic.KeyTextField;
+  svg_stroke_width: prismic.NumberField;
+
+  /**
+   * SVG Color field in *Settings → Feature SVGs*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.feature_svgs[].svg_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  svg_color: prismic.ColorField;
+
+  /**
+   * SVG Background field in *Settings → Feature SVGs*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.feature_svgs[].svg_background
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  svg_background: prismic.ColorField;
 }
 
 /**
@@ -67,15 +87,17 @@ interface SettingsDocumentData {
   og_image: prismic.ImageField<never>;
 
   /**
-   * Navigation field in *Settings*
+   * Feature SVGs field in *Settings*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.navigation[]
+   * - **API ID Path**: settings.feature_svgs[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
+  feature_svgs: prismic.GroupField<
+    Simplify<SettingsDocumentDataFeatureSvgsItem>
+  >;
 
   /**
    * SVG Link field in *Settings*
@@ -141,7 +163,7 @@ declare module "@prismicio/client" {
     export type {
       SettingsDocument,
       SettingsDocumentData,
-      SettingsDocumentDataNavigationItem,
+      SettingsDocumentDataFeatureSvgsItem,
       AllDocumentTypes,
     };
   }

@@ -28,25 +28,38 @@
           "thumbnails": []
         }
       },
-      "navigation": {
+      "feature_svgs": {
         "type": "Group",
         "config": {
-          "label": "Navigation",
-          "repeat": true,
+          "label": "Feature SVGs",
+          "repeat": false,
           "fields": {
-            "link": {
-              "type": "Link",
+            "svg_image": {
+              "type": "Image",
               "config": {
-                "label": "Link",
-                "placeholder": "",
-                "allowTargetBlank": false,
-                "select": null
+                "label": "SVG Image",
+                "constraint": {},
+                "thumbnails": []
               }
             },
-            "label": {
-              "type": "Text",
+            "svg_stroke_width": {
+              "type": "Number",
               "config": {
-                "label": "Label",
+                "label": "SVG Stroke Width",
+                "placeholder": ""
+              }
+            },
+            "svg_color": {
+              "type": "Color",
+              "config": {
+                "label": "SVG Color",
+                "placeholder": ""
+              }
+            },
+            "svg_background": {
+              "type": "Color",
+              "config": {
+                "label": "SVG Background",
                 "placeholder": ""
               }
             }
